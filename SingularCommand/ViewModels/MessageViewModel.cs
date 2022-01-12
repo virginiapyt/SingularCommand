@@ -10,7 +10,7 @@ namespace SingularCommand.ViewModels
 {
     public class MessageViewModel
     {
-        public string MessageText { get; set; }
+        //public string MessageText { get; set; }
         public MessageCommand DisplayMessageCommand { get; private set; }
 
         public MessageViewModel()
@@ -18,9 +18,9 @@ namespace SingularCommand.ViewModels
             DisplayMessageCommand = new MessageCommand(DisplayMessage);
         }
 
-        public void DisplayMessage()
+        public void DisplayMessage(string message)
         {
-            MessageBox.Show(MessageText);
+            MessageBox.Show(message);
         }
     }
 }

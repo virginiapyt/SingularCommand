@@ -10,9 +10,9 @@ namespace SingularCommand.ViewModels.Commands
     public class MessageCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged;
-        private Action _execute;
+        private Action<string> _execute;
 
-        public MessageCommand(Action execute)
+        public MessageCommand(Action<string> execute)
         {
             _execute = execute;
         }
@@ -24,7 +24,7 @@ namespace SingularCommand.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            _execute.Invoke();
+            _execute.Invoke(parameter as string);
         }
     }
 }
